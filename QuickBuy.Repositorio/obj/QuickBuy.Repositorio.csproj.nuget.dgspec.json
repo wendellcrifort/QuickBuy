@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wende\\source\\repos\\wendellcrifort\\QuickBuy\\QuickBuy.Repositorio\\QuickBuy.Repositorio.csproj": {}
+    "C:\\Users\\wende\\Source\\Repos\\wendellcrifort\\QuickBuy\\QuickBuy.Repositorio\\QuickBuy.Repositorio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wende\\source\\repos\\wendellcrifort\\QuickBuy\\QuickBuy.Repositorio\\QuickBuy.Repositorio.csproj": {
+    "C:\\Users\\wende\\Source\\Repos\\wendellcrifort\\QuickBuy\\QuickBuy.Repositorio\\QuickBuy.Repositorio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wende\\source\\repos\\wendellcrifort\\QuickBuy\\QuickBuy.Repositorio\\QuickBuy.Repositorio.csproj",
+        "projectUniqueName": "C:\\Users\\wende\\Source\\Repos\\wendellcrifort\\QuickBuy\\QuickBuy.Repositorio\\QuickBuy.Repositorio.csproj",
         "projectName": "QuickBuy.Repositorio",
-        "projectPath": "C:\\Users\\wende\\source\\repos\\wendellcrifort\\QuickBuy\\QuickBuy.Repositorio\\QuickBuy.Repositorio.csproj",
+        "projectPath": "C:\\Users\\wende\\Source\\Repos\\wendellcrifort\\QuickBuy\\QuickBuy.Repositorio\\QuickBuy.Repositorio.csproj",
         "packagesPath": "C:\\Users\\wende\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wende\\source\\repos\\wendellcrifort\\QuickBuy\\QuickBuy.Repositorio\\obj\\",
+        "outputPath": "C:\\Users\\wende\\Source\\Repos\\wendellcrifort\\QuickBuy\\QuickBuy.Repositorio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

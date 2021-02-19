@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wende\\source\\repos\\wendellcrifort\\QuickBuy\\QuickBuy.Dominio\\QuickBuy.Dominio.csproj": {}
+    "C:\\Users\\wende\\Source\\Repos\\wendellcrifort\\QuickBuy\\QuickBuy.Dominio\\QuickBuy.Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wende\\source\\repos\\wendellcrifort\\QuickBuy\\QuickBuy.Dominio\\QuickBuy.Dominio.csproj": {
+    "C:\\Users\\wende\\Source\\Repos\\wendellcrifort\\QuickBuy\\QuickBuy.Dominio\\QuickBuy.Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wende\\source\\repos\\wendellcrifort\\QuickBuy\\QuickBuy.Dominio\\QuickBuy.Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\wende\\Source\\Repos\\wendellcrifort\\QuickBuy\\QuickBuy.Dominio\\QuickBuy.Dominio.csproj",
         "projectName": "QuickBuy.Dominio",
-        "projectPath": "C:\\Users\\wende\\source\\repos\\wendellcrifort\\QuickBuy\\QuickBuy.Dominio\\QuickBuy.Dominio.csproj",
+        "projectPath": "C:\\Users\\wende\\Source\\Repos\\wendellcrifort\\QuickBuy\\QuickBuy.Dominio\\QuickBuy.Dominio.csproj",
         "packagesPath": "C:\\Users\\wende\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wende\\source\\repos\\wendellcrifort\\QuickBuy\\QuickBuy.Dominio\\obj\\",
+        "outputPath": "C:\\Users\\wende\\Source\\Repos\\wendellcrifort\\QuickBuy\\QuickBuy.Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
