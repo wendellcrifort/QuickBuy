@@ -1,10 +1,11 @@
 ﻿using QuickBuy.Dominio.ObjetoDeValor;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuickBuy.Dominio.Entidades
 {
-    public class Pedido
+    public class Pedido : Entidade
     {
         public int Id { get; set; }
         public DateTime DataPedido { get; set; }
@@ -20,5 +21,11 @@ namespace QuickBuy.Dominio.Entidades
         public int FormaPagamentoId { get; set; }
         public FormaPagamento FormaPagamento { get; set; }
         public ICollection<ItemPedido> ItensPedido { get; set; }
+
+        public override void Validate()
+        {
+            if (!ItensPedido.Any())
+                MensagensValidacao.Add("O Pedido deve conter ao menos um item.");
+        }
     }
 }
