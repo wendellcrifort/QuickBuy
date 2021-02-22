@@ -9,7 +9,11 @@
 
         public override void Validate()
         {
-            throw new System.NotImplementedException();
+            if(string.IsNullOrWhiteSpace(Nome))
+                MensagensValidacao.Add("Voce deve informar o nome do produto.");
+
+            if (string.IsNullOrWhiteSpace(Descricao))
+                MensagensValidacao.Add("Voce deve informar a descrição do produto.");
         }
     }
 }
