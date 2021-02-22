@@ -8,6 +8,13 @@ namespace QuickBuy.Dominio.ObjetoDeValor
         public string Nome { get; set; }
         public string Descricao { get; set; }
 
+        public FormaPagamento(int id, string nome, string descricao)
+        {
+            this.Id = id;
+            this.Nome = nome;
+            this.Descricao = descricao;
+        }
+
         public bool EhBoleto
         {
             get { return Id == (int)TipoFormaPagamentoEnum.Boleto; }
