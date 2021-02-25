@@ -29,6 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\autorizacao\guarda.rotas.ts" />
+    <None Remove="ClientApp\src\app\model\usuario.ts" />
     <None Remove="ClientApp\src\app\produto\produto.component.ts" />
     <None Remove="ClientApp\src\app\usuario\login\login.component.ts" />
   </ItemGroup>
@@ -48,6 +50,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\servicos\usuario\" />
+    <Folder Include="ClientApp\src\app\servicos\produto\" />
     <Folder Include="ClientApp\src\app\usuario\cadastro\" />
   </ItemGroup>
 

@@ -4,14 +4,45 @@
     <label for="inputEmail" class="sr-only">Email</label>
     <input type="email" id="inputEmail"
            name="email" placeholder="Informe seu email"
-           class="form-control mb-2" />
+           class="form-control mb-2"
+           [ngClass]="{
+            'is-invalid':email.invalid && (email.dirty || email.touched),
+            'is-valid':email.valid && (email.dirty || email.touched)
+           }"
+           [(ngModel)]="usuario.email"
+           #email="ngModel"
+           email
+           required />
+
+    <div class="invalid-feedback mb-3" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors.required">
+        Por favor, informe seu email.
+      </div>
+      <div *ngIf="email.errors.email">
+        Por favor, informe um email válido.
+      </div>
+    </div>
 
     <label for="inputSenha" class="sr-only">Senha</label>
     <input type="password" id="inputSenha"
            name="senha" placeholder="Informe sua senha"
-           class="form-control mb-2" />
+           class="form-control mb-2"
+           [ngClass]="{
+            'is-invalid':senha.invalid && (senha.dirty || senha.touched),
+            'is-valid':senha.valid && (senha.dirty || senha.touched)
+           }"
+           [(ngModel)]="usuario.senha"
+           #senha="ngModel"
+           required/>
 
-    <button class="btn btn-primary btn-block" type="submit">Entrar</button>
-     
+    <div class="invalid-feedback mb-3" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
+      <div *ngIf="senha.errors.required">
+        Por favor, informe sua senha.
+      </div>      
+    </div>
+
+
+    <button class="btn btn-primary btn-block" type="submit" (click)="entrar()">Entrar</button>
+
   </form>
 </div>
