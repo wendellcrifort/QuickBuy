@@ -15,6 +15,7 @@ namespace QuickBuy.web
     public class Startup
     {
         public IConfiguration Configuration { get; }
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public Startup(IConfiguration configuration)
         {
@@ -29,6 +30,15 @@ namespace QuickBuy.web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:4200/", "https://localhost:44376");
+                                  });
+            });
 
             var connectionString = Configuration.GetConnectionString("QuickBuy");
             services.AddDbContext<QuickBuyContexto>(opts => 
@@ -61,9 +71,10 @@ namespace QuickBuy.web
                 app.UseHsts();
             }
 
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSpaStaticFiles();
+            app.UseSpaStaticFiles();            
 
             app.UseMvc(routes =>
             {
@@ -80,7 +91,8 @@ namespace QuickBuy.web
                 spa.Options.SourcePath = "ClientApp";
 
                 if (env.IsDevelopment())
-                {                    
+                {
+                    //spa.UseAngularCliServer(npmScript: "start");
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
                 }
             });
