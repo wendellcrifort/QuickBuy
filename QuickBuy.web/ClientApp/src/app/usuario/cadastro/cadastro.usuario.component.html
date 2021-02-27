@@ -1,0 +1,94 @@
+<div class="text-center">
+  <form class="form-signin">
+    <h1 class="h4 mb-3 login">Cadastre-se</h1>
+
+    <label for="inputNome" class="sr-only">Nome</label>
+    <input type="text" id="inputNome"
+           name="nome" placeholder="Informe seu nome"
+           class="form-control mb-2"
+           [ngClass]="{
+            'is-invalid':nome.invalid && (nome.dirty || nome.touched),
+            'is-valid':nome.valid && (nome.dirty || nome.touched)
+           }"
+           [(ngModel)]="usuario.nome"
+           #nome="ngModel"
+           required />
+
+    <div class="invalid-feedback mb-3" *ngIf="nome.invalid && (nome.dirty || nome.touched)">
+      <div *ngIf="nome.errors.required">
+        Por favor, informe seu nome.
+      </div>
+    </div>
+
+    <label for="inputSobrenome" class="sr-only">Sobrenome</label>
+    <input type="text" id="inputSobrenome"
+           name="sobrenome" placeholder="Informe seu sobrenome"
+           class="form-control mb-2"
+           [ngClass]="{
+            'is-invalid':sobrenome.invalid && (sobrenome.dirty || sobrenome.touched),
+            'is-valid':sobrenome.valid && (sobrenome.dirty || sobrenome.touched)
+           }"
+           [(ngModel)]="usuario.sobrenome"
+           #sobrenome="ngModel"
+           required />
+
+    <div class="invalid-feedback mb-3" *ngIf="sobrenome.invalid && (sobrenome.dirty || sobrenome.touched)">
+      <div *ngIf="sobrenome.errors.required">
+        Por favor, informe seu sobrenome.
+      </div>
+    </div>
+
+
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input type="email" id="inputEmail"
+           name="email" placeholder="Informe seu email"
+           class="form-control mb-2"
+           [ngClass]="{
+            'is-invalid':email.invalid && (email.dirty || email.touched),
+            'is-valid':email.valid && (email.dirty || email.touched)
+           }"
+           [(ngModel)]="usuario.email"
+           #email="ngModel"
+           email
+           required />
+
+    <div class="invalid-feedback mb-3" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors.required">
+        Por favor, informe seu email.
+      </div>
+      <div *ngIf="email.errors.email">
+        Por favor, informe um email válido.
+      </div>
+    </div>
+
+    <label for="inputSenha" class="sr-only">Senha</label>
+    <input type="password" id="inputSenha"
+           name="senha" placeholder="Informe sua senha"
+           class="form-control mb-2"
+           [ngClass]="{
+            'is-invalid':senha.invalid && (senha.dirty || senha.touched),
+            'is-valid':senha.valid && (senha.dirty || senha.touched)
+           }"
+           [(ngModel)]="usuario.senha"
+           #senha="ngModel"
+           required />
+
+    <div class="invalid-feedback mb-3" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
+      <div *ngIf="senha.errors.required">
+        Por favor, informe sua senha.
+      </div>
+    </div>
+
+
+    <button class="btn btn-primary btn-block mb-3" type="submit" (click)="cadastrar()">
+      <span *ngIf="ativarspinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Cadastrar
+    </button>
+    <a [routerLink]='["/entrar"]'>Voltar</a>
+
+    <div class="alert alert-danger" *ngIf="mensagem">
+      {{mensagem}}
+    </div>
+
+  </form>
+</div>

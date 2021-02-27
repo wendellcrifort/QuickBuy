@@ -48,4 +48,16 @@ export class UsuarioServico {
     sessionStorage.setItem("usuario-autenticado", "");
     this._usuario = null;
   }
+
+  public cadastrarUsuario(usuario: Usuario): Observable<Usuario>{
+    var body = {
+      email: usuario.email,
+      senha: usuario.senha,
+      nome: usuario.nome,
+      sobrenome: usuario.sobrenome
+    }
+
+    return this.http.post<Usuario>(this.baseUrl + "api/usuario/cadastrarusuario", body)
+  }
+
 }
