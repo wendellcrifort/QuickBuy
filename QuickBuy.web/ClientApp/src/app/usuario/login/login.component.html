@@ -33,16 +33,19 @@
            }"
            [(ngModel)]="usuario.senha"
            #senha="ngModel"
-           required/>
+           required />
 
     <div class="invalid-feedback mb-3" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
       <div *ngIf="senha.errors.required">
         Por favor, informe sua senha.
-      </div>      
+      </div>
     </div>
 
 
-    <button class="btn btn-primary btn-block mb-3" type="submit" (click)="entrar()">Entrar</button>
+    <button class="btn btn-primary btn-block mb-3" type="submit" (click)="entrar()">
+      <span *ngIf="ativarspinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Entrar
+    </button>
 
     <div class="alert alert-danger" *ngIf="mensagem">
       {{mensagem}}

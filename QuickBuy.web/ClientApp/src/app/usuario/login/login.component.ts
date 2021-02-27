@@ -13,6 +13,7 @@ export class LoginComponent {
   public usuario;  
   public returnUrl: string
   public mensagem: string;
+  private ativarspinner: boolean; 
 
   constructor(private router: Router,
     private actvatedRouter: ActivatedRoute,
@@ -23,21 +24,24 @@ export class LoginComponent {
   }
 
   entrar() {
-
+    this.ativarspinner = true;
     this.usuarioServico.verificarUsuario(this.usuario)
       .subscribe(
         data => {
           this.usuarioServico.usuario = data
           
           if (this.returnUrl === undefined) {
+            this.ativarspinner = false;
             this.router.navigate(['/']);
           } else {
+            this.ativarspinner = false;
             this.router.navigate([this.returnUrl]);
           }
           
         },
         err => {
-          this.mensagem = err.error;
+          this.ativarspinner = false;
+          this.mensagem = err.error; 
         }
       );    
   }
