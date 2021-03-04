@@ -4,7 +4,7 @@ using QuickBuy.Dominio.Entidades;
 using System;
 
 namespace QuickBuy.web.Controllers
-{    
+{
     [Route("api/[controller]")]
     public class UsuarioController : Controller
     {
@@ -37,6 +37,25 @@ namespace QuickBuy.web.Controllers
                     return Ok(usuarioRetorno);
 
                 return BadRequest("Usuario ou senha inválidos");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }
+        }
+
+        [HttpPost("CadastrarUsuario")]
+        public ActionResult CadastrarUsuario([FromBody] Usuario usuario)
+        {
+            try
+            {
+                var usuarioCadastrado = _usuarioRepositorio.Obter(usuario.Email);
+                if (usuarioCadastrado != null)
+                    return BadRequest("Já existe um usuário cadastrado com este email.");
+
+                _usuarioRepositorio.Adicionar(usuario);
+
+                return Ok();
             }
             catch (Exception ex)
             {

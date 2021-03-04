@@ -12,7 +12,7 @@ namespace QuickBuy.Repositorio.Config
 
             builder
                 .Property(p => p.Nome)
-                .HasMaxLength(20)
+                .HasMaxLength(50)
                 .IsRequired();
 
             builder

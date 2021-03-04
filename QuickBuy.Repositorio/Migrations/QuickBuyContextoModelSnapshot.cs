@@ -96,7 +96,7 @@ namespace QuickBuy.Repositorio.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasMaxLength(20);
+                        .HasMaxLength(50);
 
                     b.Property<decimal>("Preco");
 

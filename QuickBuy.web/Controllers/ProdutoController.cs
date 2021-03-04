@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using QuickBuy.Dominio.Contratos;
 using QuickBuy.Dominio.Entidades;
 using System;
@@ -9,9 +11,16 @@ namespace QuickBuy.web.Controllers
     public class ProdutoController : Controller
     {
         private readonly IProdutoRepositorio _produtoRepositorio;
-        public ProdutoController(IProdutoRepositorio produtoRepositorio)
+        private IHttpContextAccessor _httpContextAccessor;
+        private IHostingEnvironment _hostingEnvironment;
+
+        public ProdutoController(IProdutoRepositorio produtoRepositorio, 
+                                 IHttpContextAccessor httpContextAccessor,
+                                 IHostingEnvironment hostingEnvironment)
         {
             _produtoRepositorio = produtoRepositorio;
+            _httpContextAccessor = httpContextAccessor;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         [HttpGet]
@@ -25,20 +34,7 @@ namespace QuickBuy.web.Controllers
             {
                 return BadRequest(ex.Message.ToString());
             }
-        }
-
-        //[HttpGet]
-        //public ActionResult GetById(int id)
-        //{
-        //    try
-        //    {
-        //        return Ok(_produtoRepositorio.ObterPorId(id));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message.ToString());                
-        //    }
-        //}
+        }        
 
         [HttpPost]
         public ActionResult Post([FromBody]Produto produto)
@@ -54,5 +50,12 @@ namespace QuickBuy.web.Controllers
                 return BadRequest(ex.Message.ToString());
             }
         }
+
+        [HttpPost]
+        public ActionResult EnviarArquivo()
+        {
+            return null;
+        }
+
     }
 }
