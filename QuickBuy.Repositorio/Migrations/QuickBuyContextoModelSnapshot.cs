@@ -98,6 +98,10 @@ namespace QuickBuy.Repositorio.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
+                    b.Property<string>("NomeArquivo")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
                     b.Property<decimal>("Preco");
 
                     b.HasKey("ID");

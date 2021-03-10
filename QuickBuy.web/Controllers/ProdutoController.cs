@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using QuickBuy.Dominio.Contratos;
 using QuickBuy.Dominio.Entidades;
 using System;
+using System.IO;
+using System.Linq;
 
 namespace QuickBuy.web.Controllers
 {
@@ -51,10 +53,44 @@ namespace QuickBuy.web.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("EnviarArquivo")]
         public ActionResult EnviarArquivo()
         {
-            return null;
+            try
+            {
+                var arquivoSelecionado = _httpContextAccessor
+                                                .HttpContext
+                                                .Request
+                                                .Form
+                                                .Files["arquivoSelecionado"];
+
+                if(arquivoSelecionado != null)
+                {
+                    string nomeArquivo = arquivoSelecionado.FileName;
+                    string ext = nomeArquivo.Split('.').Last();
+
+                    char[] nomeReduzido = Path
+                                        .GetFileNameWithoutExtension(nomeArquivo)
+                                        .Take(10).ToArray();
+
+                    string novoNome = $"{new string(nomeReduzido).Replace(' ', '-')}{DateTime.Now.Year}{DateTime.Now.Month}{DateTime.Now.Day}{DateTime.Now.Hour}{DateTime.Now.Minute}{DateTime.Now.Second}.{ext}";
+
+                    string nomeCompleto = $@"{_hostingEnvironment.WebRootPath}\Files\{novoNome}";                    
+
+                    using (var streamArquivo = new FileStream(nomeCompleto, FileMode.Create))
+                    {
+                        arquivoSelecionado.CopyTo(streamArquivo);
+                    }
+
+                    return Json(novoNome);
+                }
+
+                return BadRequest("Arquivo não encontrado.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }
         }
 
     }
